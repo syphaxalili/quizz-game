@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-blue: #4d5b9e;
+  --color-blue-dark: #293264;
+  --color-blue-light: #d6dbf5;
+  --color-true: #94d7a2;
+  --color-false: #f8bcbc;
+  --color-false-text: #9c9db5;
+  --color-gray: #a1a9cc;
+  --color-black: #1c1c1c;
+  --color-bg: #f5f7fb;
+  --font-family-inter: "Inter", sans-serif;
+  --font-family-karla: "Karla", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black);
+  font-family: var(--font-family-inter);
+  font-optical-sizing: auto;
+  font-style: normal;
+  user-select: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ============== General rules ================= */
+.app__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  position: relative;
+  background-color: var(--color-bg);
+  width: 600px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+.bg__left,
+.bg__right {
+  position: absolute;
+}
+
+.bg__left {
+  bottom: 0;
+  left: 0;
+}
+
+.bg__right {
+  top: 0;
+  right: 0;
+}
+
+.action__button {
+  color: var(--color-bg);
+  background-color: var(--color-blue);
+  width: fit-content;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.action__button:disabled {
+  background-color: var(--color-gray);
+  cursor: not-allowed;
+}
+
+/* ============== START SCREEN ================= */
+.startscreen__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startscreen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.startscreen__content h2 {
+  font-family: var(--font-family-karla);
+  font-weight: 700;
+  color: var(--color-blue-dark);
+  font-size: 2rem;
+}
+
+.startscreen__content p {
+  color: var(--color-blue-dark);
+}
+
+.startscreen__content button {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* ============== GAME SCREEN ================= */
+
+.gamescreen__container .bg__left {
+  left: -3rem;
+  bottom: -4.5rem;
+}
+
+.gamescreen__container .bg__right {
+  right: -2.5rem;
+  top: -3.5rem;
+}
+
+.gamescreen__content .questions__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.gamescreen__content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 4rem;
+}
+
+.gamescreen__content .loading__text {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--color-blue-dark);
+}
+
+.gamescreen__content .question .text,
+.gamescreen__content .option span {
+  color: var(--color-blue-dark);
+}
+
+.gamescreen__content .option.incorrect span {
+  color: var(--color-false-text);
+}
+
+.gamescreen__content .question .text {
+  font-family: var(--font-family-karla);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.gamescreen__content .question .options__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.gamescreen__content .question .option {
+  width: fit-content;
+  border-radius: 10px;
+  border: 1px solid var(--color-blue);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.gamescreen__content .question .option.checked {
+  border-color: var(--color-blue-light);
+  background: var(--color-blue-light);
+}
+
+.gamescreen__content .question .option.correct {
+  border-color: var(--color-true);
+  background: var(--color-true);
+}
+
+.gamescreen__content .question .option.incorrect {
+  border-color: var(--color-false);
+  background: var(--color-false);
+}
+
+.gamescreen__content .question .option span {
+  width: 100%;
+  display: inline-block;
+  padding: 0.4rem 1.7rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.gamescreen__content .question hr {
+  display: block;
+  width: 90%;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--color-blue-light);
+}
+
+.gamescreen__content .result__button-container {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.gamescreen__content .result__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+.gamescreen__content .result__container p {
+  font-weight: 700;
+  color: var(--color-blue-dark);
+}
